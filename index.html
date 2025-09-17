@@ -9,26 +9,31 @@
 <meta property="og:title" content="Un mensaje especial para ti 🌼">
 <meta property="og:description" content="Que tu día esté lleno de alegría y flores amarillas!">
 <meta property="og:image" content="https://images.unsplash.com/photo-1561484931-3e1e85b7e52b?auto=format&fit=crop&w=600&q=80">
-<meta property="og:url" content="https://TU_USUARIO.github.io/mi-mensaje-wa/">
+<meta property="og:url" content="https://TU_USUARIO.github.io/flores-amarillas/">
 
 <style>
   body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000; /* fondo negro */
+    overflow: hidden;
     font-family: Arial, sans-serif;
-    background-color: #fff9c4; /* amarillo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #FFD700; /* texto amarillo */
     text-align: center;
-    padding: 50px;
   }
+
   h1 {
-    color: #fbc02d; /* amarillo fuerte */
     font-size: 2.5em;
+    z-index: 2;
+    position: relative;
   }
-  img {
-    width: 300px;
-    border-radius: 15px;
-    margin-top: 20px;
-  }
+
   button {
-    margin-top: 30px;
+    margin-top: 20px;
     background: #25D366;
     color: white;
     padding: 12px 20px;
@@ -36,22 +41,65 @@
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    z-index: 2;
+    position: relative;
+  }
+
+  /* Flores animadas */
+  .flower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+    opacity: 0.8;
+  }
+
+  /* Crear varios círculos como pétalos */
+  .flower::before,
+  .flower::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+  }
+
+  .flower::before { transform: translate(-20px, 0) rotate(45deg); }
+  .flower::after  { transform: translate(20px, 0) rotate(-45deg); }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) translateX(0); }
+    100% { transform: translateY(-50px) translateX(100px); }
   }
 </style>
 </head>
 <body>
-  <h1>¡Que tengas un día lleno de flores amarillas! 🌼</h1>
-  <img src="https://images.unsplash.com/photo-1561484931-3e1e85b7e52b?auto=format&fit=crop&w=600&q=80" alt="Flores Amarillas">
-  
-  <br>
-  <button onclick="compartir()">Compartir en WhatsApp</button>
 
-  <script>
-    function compartir() {
-      const url = "https://TU_USUARIO.github.io/mi-mensaje-wa/";
-      const mensaje = "🌼 Te envío un mensaje especial: " + url;
-      window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje), "_blank");
-    }
-  </script>
+<h1>¡Que tu día esté lleno de flores amarillas! 🌼</h1>
+<button onclick="compartir()">Compartir en WhatsApp</button>
+
+<!-- Flores -->
+<script>
+  // Crear 20 flores con posiciones aleatorias
+  for(let i=0; i<20; i++){
+    let flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.style.left = Math.random() * window.innerWidth + 'px';
+    flower.style.animationDuration = (5 + Math.random()*5) + 's';
+    flower.style.width = (20 + Math.random()*30) + 'px';
+    flower.style.height = flower.style.width;
+    document.body.appendChild(flower);
+  }
+
+  function compartir() {
+    const url = "https://TU_USUARIO.github.io/flores-amarillas/";
+    const mensaje = "🌼 Te envío un mensaje especial: " + url;
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje), "_blank");
+  }
+</script>
+
 </body>
 </html>
