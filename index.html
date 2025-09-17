@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Flores Amarillas 🌼</title>
+
+<!-- Meta tags para WhatsApp preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Un mensaje especial para ti 🌼">
+<meta property="og:description" content="Que tu día esté lleno de alegría y flores amarillas!">
+<meta property="og:image" content="https://images.unsplash.com/photo-1561484931-3e1e85b7e52b?auto=format&fit=crop&w=600&q=80">
+<meta property="og:url" content="https://TU_USUARIO.github.io/mi-mensaje-wa/">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff9c4; /* amarillo suave */
+    text-align: center;
+    padding: 50px;
+  }
+  h1 {
+    color: #fbc02d; /* amarillo fuerte */
+    font-size: 2.5em;
+  }
+  img {
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 30px;
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1>¡Que tengas un día lleno de flores amarillas! 🌼</h1>
+  <img src="https://images.unsplash.com/photo-1561484931-3e1e85b7e52b?auto=format&fit=crop&w=600&q=80" alt="Flores Amarillas">
+  
+  <br>
+  <button onclick="compartir()">Compartir en WhatsApp</button>
+
+  <script>
+    function compartir() {
+      const url = "https://TU_USUARIO.github.io/mi-mensaje-wa/";
+      const mensaje = "🌼 Te envío un mensaje especial: " + url;
+      window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje), "_blank");
+    }
+  </script>
+</body>
+</html>
